@@ -1,0 +1,82 @@
+[
+  {
+    "version": "0.2.4",
+    "date": "2026-11-15",
+    "notes": "### Improved\n- Hotspots and weak Wi-Fi no longer break up the sound. Hotspots (a PC's\n  Mobile Hotspot, a phone's hotspot) and Wi-Fi power saving hold packets for\n  100–300 ms and then release them all at once; SYNQ now enlarges its buffer\n  to ride through those stalls instead of cutting, and shrinks it again when\n  the network calms down. The phone shows \"Unstable network · +X ms buffer to\n  avoid cuts\" while this happens. On a steady network nothing changes.",
+    "windows": {
+      "url": "https://github.com/nerkoux/synq-releases/releases/download/v0.2.4/SYNQ-Setup-0.2.4.exe",
+      "sha256": "a0f0153c8d0e272537b8cc4bfd571b20f944cbabb9402d9c64f9b25fd8c80fc5",
+      "size": 22619648
+    },
+    "android": {
+      "url": "https://github.com/nerkoux/synq-releases/releases/download/v0.2.4/SYNQ-0.2.4.apk",
+      "sha256": "0585a9fa1fd7e006ad3c64d95c4738622af992b410aa7890a571f66c07b700e4",
+      "size": 23339182,
+      "version_code": 204
+    }
+  },
+  {
+    "version": "0.2.3",
+    "date": "2026-11-14",
+    "notes": "### New\n- Full-screen player on the phone in landscape: the status and navigation\n  bars hide (swipe from the edge to show them).\n- The phone's home screens use two columns in landscape.\n\n### Fixed\n- \"Forget\" on the PC now also removes the pairing: a forgotten phone has to\n  pair again instead of reconnecting straight away. A pairing request brings\n  SYNQ back from the tray.\n- SYNQ Desktop no longer uses a full CPU core while hidden in the tray\n  (about 12% before, under 1% now).\n\n### Improved\n- Lighter on the phone's battery: the media notification only updates when\n  something changed, and the progress bar redraws a few times a second\n  instead of every frame.\n- Media apps on the PC are checked less often when nothing is shown.",
+    "windows": {
+      "url": "https://github.com/nerkoux/synq-releases/releases/download/v0.2.3/SYNQ-Setup-0.2.3.exe",
+      "sha256": "de13478767fb57fc248cf162fd8be8e281aec4e13090a20a9e438fb1e8e2e11c",
+      "size": 22620160
+    },
+    "android": {
+      "url": "https://github.com/nerkoux/synq-releases/releases/download/v0.2.3/SYNQ-0.2.3.apk",
+      "sha256": "4bfebe98eeaebcc99c7831ab623e23032af07bc781cea79c116cff11bec6fb39",
+      "size": 23327190,
+      "version_code": 203
+    }
+  },
+  {
+    "version": "0.2.2",
+    "date": "2026-11-14",
+    "notes": "### New\n- Media controls in the phone's notification and on the lock screen: artwork,\n  play/pause, previous/next and seeking for whatever plays on the computer\n  (also from Bluetooth and headset buttons).\n- Updates in the app: on every launch SYNQ checks for a new version and shows\n  a dialog; \"Update now\" downloads, verifies and installs it (PC and phone).\n\n### Improved\n- The phone's player works in landscape: artwork with the seek bar on the\n  left, controls on the right; it no longer gets stuck when rotating.\n- \"Check for updates\" on the PC shows its progress and result.",
+    "windows": {
+      "url": "https://github.com/nerkoux/synq-releases/releases/download/v0.2.2/SYNQ-Setup-0.2.2.exe",
+      "sha256": "efb811035623bbdd198c8758d04cbe5d6a0bbc17e65740de7c43ca9ff420e111",
+      "size": 22614528
+    },
+    "android": {
+      "url": "https://github.com/nerkoux/synq-releases/releases/download/v0.2.2/SYNQ-0.2.2.apk",
+      "sha256": "f04e3cf39167297ea30ed506b13ff90dfa75d43be722d5c8887f2b8f7e1c089d",
+      "size": 23311026,
+      "version_code": 202
+    }
+  },
+  {
+    "version": "0.2.1",
+    "date": "2026-11-14",
+    "notes": "### Improved\n- SYNQ Desktop no longer opens a console window; logs go to a file instead.\n- The SYNQ icon now shows in the taskbar, Start menu and Explorer.\n- SYNQ Setup: license agreement, choice of install folder, smoother pages.\n- A fresh install starts with the first-run setup; development builds keep\n  their own settings and never mix with the installed app.\n- Lighter: fewer redraws when SYNQ is in the background, smaller downloads.\n- This release also tests automatic updates from 0.2.0.",
+    "windows": {
+      "url": "https://github.com/nerkoux/synq-releases/releases/download/v0.2.1/SYNQ-Setup-0.2.1.exe",
+      "sha256": "f7789b9bfa5d868683ade211f64d08a5bd0d0a308a8063810b5a90f3b3a7971f",
+      "size": 22601728
+    },
+    "android": {
+      "url": "https://github.com/nerkoux/synq-releases/releases/download/v0.2.1/SYNQ-0.2.1.apk",
+      "sha256": "b5812a4832737289808021cdf31988972c97bdd17aa67573fc8b55a5c3d49cec",
+      "size": 23292094,
+      "version_code": 201
+    }
+  },
+  {
+    "version": "0.2.0",
+    "date": "2026-11-14",
+    "notes": "### New\n- Pairing required: every connection is a Noise IK handshake with a paired phone; unpaired phones get the pairing code automatically.\n- Disconnect on the PC now stops the phone for good (authenticated kick).\n- Now Playing: see and control what any app plays (Spotify, Chrome, Brave, Apple Music…) — seek, ±10 s, previous/next, shuffle, repeat — on the PC and the phone.\n- New black-and-white design with onboarding on Windows and Android.\n- Tray icon, minimize to tray, full screen (F11), two-column wide layout.\n- SYNQ Setup installer and signed automatic updates.",
+    "windows": {
+      "url": "https://github.com/nerkoux/synq-releases/releases/download/v0.2.0/SYNQ-Setup-0.2.0.exe",
+      "sha256": "33b6c660b85fde7f42da947d247e8aeebc01f29fd15da1661a873c3c419e7088",
+      "size": 21701632
+    },
+    "android": {
+      "url": "https://github.com/nerkoux/synq-releases/releases/download/v0.2.0/SYNQ-0.2.0.apk",
+      "sha256": "0631cbf505a8040ea839ede3c381e660dacb8fab5911f96ab13656e4c661de0a",
+      "size": 23291850,
+      "version_code": 200
+    }
+  }
+]

@@ -1,0 +1,17 @@
+{
+  "version": "0.2.4",
+  "date": "2026-11-15",
+  "notes": "### Improved\n- Hotspots and weak Wi-Fi no longer break up the sound. Hotspots (a PC's\n  Mobile Hotspot, a phone's hotspot) and Wi-Fi power saving hold packets for\n  100–300 ms and then release them all at once; SYNQ now enlarges its buffer\n  to ride through those stalls instead of cutting, and shrinks it again when\n  the network calms down. The phone shows \"Unstable network · +X ms buffer to\n  avoid cuts\" while this happens. On a steady network nothing changes.",
+  "windows": {
+    "url": "https://github.com/nerkoux/synq-releases/releases/download/v0.2.4/SYNQ-Setup-0.2.4.exe",
+    "sha256": "a0f0153c8d0e272537b8cc4bfd571b20f944cbabb9402d9c64f9b25fd8c80fc5",
+    "size": 22619648
+  },
+  "android": {
+    "url": "https://github.com/nerkoux/synq-releases/releases/download/v0.2.4/SYNQ-0.2.4.apk",
+    "sha256": "0585a9fa1fd7e006ad3c64d95c4738622af992b410aa7890a571f66c07b700e4",
+    "size": 23339182,
+    "version_code": 204
+  },
+  "signature": "f280ede7202891cf777ee70c62f831a0fdaa740961ee692562122f0063947ed7958adc55002ffc485b474d54bea797120e2d7e2e8e5d340d177101ddd17e6a0b"
+}

@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SYNQ — Connected by sound</title>
+<style>
+:root{--ink:#0a0a0a;--surface:#151515;--hi:#212121;--text:#f7f7f7;--muted:#8e8e8e}
+*{box-sizing:border-box}body{margin:0;background:var(--ink);color:var(--text);font:16px/1.55 "Segoe UI",system-ui,sans-serif}
+main{max-width:1040px;margin:0 auto;padding:48px 20px}
+h1{font-size:clamp(56px,12vw,120px);margin:0;letter-spacing:-4px;font-weight:800}
+.tag{color:var(--muted);font-size:22px;margin:4px 0 32px}
+.rings{width:160px;height:160px;border-radius:50%;position:relative;margin-bottom:24px}
+.rings span{position:absolute;inset:0;border:1.5px solid #fff;border-radius:50%;animation:r 2.6s linear infinite;opacity:0}
+.rings span:nth-child(2){animation-delay:.87s}.rings span:nth-child(3){animation-delay:1.73s}
+.rings b{position:absolute;inset:56px;background:#fff;border-radius:50%}
+@keyframes r{from{transform:scale(.35);opacity:.6}to{transform:scale(1);opacity:0}}
+.dl{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;padding:16px 28px;border-radius:999px;font-weight:600;text-decoration:none}
+.p{background:#fff;color:#0a0a0a}.s{background:var(--hi);color:var(--text)}
+.ver{color:var(--muted);margin-top:12px;font-size:14px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin:56px 0}
+.card{background:var(--surface);border-radius:28px;padding:24px}.card h3{margin:0 0 6px}.card p{margin:0;color:var(--muted)}
+.rel{background:var(--surface);border-radius:28px;padding:24px;margin:12px 0}.rel h3{margin:0}.rel small{color:var(--muted)}
+.rel ul{color:#d0d0d0;padding-left:20px}footer{color:var(--muted);margin-top:56px;font-size:14px}
+</style>
+</head>
+<body><main>
+<div class="rings"><span></span><span></span><span></span><b></b></div>
+<h1>SYNQ</h1>
+<p class="tag">Connected by sound. Your PC's sound on your phone — with low latency, over your own network.</p>
+<div class="dl">
+  <a class="btn p" id="win" href="#">Download for Windows</a>
+  <a class="btn s" id="apk" href="#">Download for Android</a>
+</div>
+<p class="ver" id="ver">Loading the latest release…</p>
+<div class="grid">
+  <div class="card"><h3>Low latency</h3><p>Uncompressed audio in milliseconds over Wi-Fi or Ethernet.</p></div>
+  <div class="card"><h3>Paired and private</h3><p>Pair once with a particle code; only your phones can connect.</p></div>
+  <div class="card"><h3>Now playing</h3><p>Control Spotify, Chrome, Apple Music and more from your phone.</p></div>
+  <div class="card"><h3>Always up to date</h3><p>Signed automatic updates on Windows and Android.</p></div>
+</div>
+<h2>Release notes</h2>
+<div id="releases"></div>
+<footer>© StillForm Studio</footer>
+</main>
+<script>
+const esc=s=>s.replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+function md(t){let h='',list=false;for(const l of t.split('\n')){const x=l.trim();
+ if(/^[-*] /.test(x)){if(!list){h+='<ul>';list=true}h+='<li>'+esc(x.slice(2))+'</li>';continue}
+ if(list){h+='</ul>';list=false}
+ if(x.startsWith('#'))h+='<h4>'+esc(x.replace(/^#+\s*/,''))+'</h4>';else if(x)h+='<p>'+esc(x)+'</p>'}
+ return h+(list?'</ul>':'')}
+const mb=n=>(n/1048576).toFixed(1)+' MB';
+fetch('latest.json',{cache:'no-store'}).then(r=>r.json()).then(m=>{
+ if(m.windows){win.href=m.windows.url;win.textContent+=' · '+mb(m.windows.size)}
+ if(m.android){apk.href=m.android.url;apk.textContent+=' · '+mb(m.android.size)}
+ ver.textContent='Version '+m.version+' · '+m.date}).catch(()=>ver.textContent='No release yet.');
+fetch('releases.json',{cache:'no-store'}).then(r=>r.json()).then(list=>{
+ releases.innerHTML=list.map(r=>'<div class="rel"><h3>SYNQ '+esc(r.version)+'</h3><small>'+esc(r.date)+'</small>'+md(r.notes)+'</div>').join('')}).catch(()=>{});
+</script>
+</body></html>
