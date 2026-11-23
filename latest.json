@@ -1,0 +1,17 @@
+{
+  "version": "0.3.5",
+  "date": "2026-11-23",
+  "notes": "### Fixed\n- **The song no longer starts over the AutoMix intro.** The intro now\n  finishes completely, closing line included, and only then the soft music\n  fades out and your song fades back in, from where it was.",
+  "windows": {
+    "url": "https://github.com/nerkoux/synq-releases/releases/download/v0.3.5/SYNQ-Setup-0.3.5.exe",
+    "sha256": "5e1059a7e27fc03d2023ddcc5400626db802c5376119134158a0727188353c16",
+    "size": 23016960
+  },
+  "android": {
+    "url": "https://github.com/nerkoux/synq-releases/releases/download/v0.3.5/SYNQ-0.3.5.apk",
+    "sha256": "cbad76d123865997e83160e338e18111d84c3770b7e14d15b9748e1162f4dc67",
+    "size": 23504658,
+    "version_code": 305
+  },
+  "signature": "2f7c3c452c8eb63b39089488a131ed3fcf01c2d3257d024edba4c6d6a8af02a66f6e7225b8431705cb13cdb3cd2ff8686dbe01d8ebc2bf895dce522eeb4e140f"
+}

@@ -1,0 +1,258 @@
+[
+  {
+    "version": "0.3.5",
+    "date": "2026-11-23",
+    "notes": "### Fixed\n- **The song no longer starts over the AutoMix intro.** The intro now\n  finishes completely, closing line included, and only then the soft music\n  fades out and your song fades back in, from where it was.",
+    "windows": {
+      "url": "https://github.com/nerkoux/synq-releases/releases/download/v0.3.5/SYNQ-Setup-0.3.5.exe",
+      "sha256": "5e1059a7e27fc03d2023ddcc5400626db802c5376119134158a0727188353c16",
+      "size": 23016960
+    },
+    "android": {
+      "url": "https://github.com/nerkoux/synq-releases/releases/download/v0.3.5/SYNQ-0.3.5.apk",
+      "sha256": "cbad76d123865997e83160e338e18111d84c3770b7e14d15b9748e1162f4dc67",
+      "size": 23504658,
+      "version_code": 305
+    }
+  },
+  {
+    "version": "0.3.4",
+    "date": "2026-11-23",
+    "notes": "AutoMix switches on and off smoothly, with its intro, and without chops.\n\n### Fixed\n- **The AutoMix intro did not play** the first time AutoMix was switched\n  on after SYNQ started. AutoMix began listening only at that moment, so\n  it could not tell music was playing. It now listens all the time.\n- **Choppy sound right after switching AutoMix on.** Without the intro,\n  AutoMix built its blend room by playing slightly slower, and in its\n  first moments the stretcher ran out of music (short silent gaps). The\n  blend room now fills during the intro. If the stretcher ever has too\n  little music ahead, it plays at normal speed instead of going silent.\n- **Smoother switching.** Switching on, the song fades out over 1.5 s as\n  the intro comes in, and comes back under the closing line. Switching\n  off, the delayed music crossfades to live over 1.5 s instead of jumping.\n- After a blend, the blend room rebuilds more gently (1.5 % slower\n  instead of 2 %, pitch unchanged).",
+    "windows": {
+      "url": "https://github.com/nerkoux/synq-releases/releases/download/v0.3.4/SYNQ-Setup-0.3.4.exe",
+      "sha256": "998aa42c38ef1221f3511fe2a66605218a520e99507e38e69ba884685c056284",
+      "size": 23015936
+    },
+    "android": {
+      "url": "https://github.com/nerkoux/synq-releases/releases/download/v0.3.4/SYNQ-0.3.4.apk",
+      "sha256": "1f1d1d52b236895186d31d6952433c49613729a9d2519eedeb7fa6addd98953d",
+      "size": 23504658,
+      "version_code": 304
+    }
+  },
+  {
+    "version": "0.3.3",
+    "date": "2026-11-23",
+    "notes": "Speaker effects handled automatically, a cleaner phone screen, and an\nintro instead of silence when AutoMix starts.\n\n### New\n- **Speaker effects switch off by themselves.** While SYNQ runs, it turns\n  \"Audio enhancements\" off on the PC output it captures (DTS, Dolby,\n  Realtek, Waves…), so phones get the original sound. They come back on\n  when SYNQ quits, and after a crash on SYNQ's next start. No\n  administrator rights needed. Settings → Sound from this PC turns it off.\n- **AutoMix intro.** Switched on during a song, AutoMix needs a few seconds\n  to listen ahead. Instead of silence, a calm, clean voice says SYNQ is\n  preparing your AutoMix over soft, slow music. Then your song eases back\n  in from exactly where it was, under the closing line. The voice is Windows' own speech engine\n  (a female English voice when one is installed). AutoMix page → \"Intro\n  while AutoMix gets ready\" turns it off.\n- **Bluetooth notice on the phone.** The first time sound goes to\n  Bluetooth headphones, a short note explains that they add their own\n  delay, with \"Don't show this again\".\n\n### Changed\n- The speaker-effects notice on Home is cleaner. It only appears if SYNQ\n  could not switch the effects off.\n- The phone's session screen no longer shows the latency breakdown and\n  Bluetooth tips.\n\n### Fixed\n- The speaker-effects warning stayed after \"Audio enhancements\" was turned\n  off: SYNQ read the switch from the wrong place.",
+    "windows": {
+      "url": "https://github.com/nerkoux/synq-releases/releases/download/v0.3.3/SYNQ-Setup-0.3.3.exe",
+      "sha256": "0dbbd250b4658d6133fc42c36ce4841ef5a2dcf47a224b898354aa25dc731f50",
+      "size": 23015424
+    },
+    "android": {
+      "url": "https://github.com/nerkoux/synq-releases/releases/download/v0.3.3/SYNQ-0.3.3.apk",
+      "sha256": "5bd799c144971479f37c72cbcac69c5f2962f14e3dcf6d46133118bee5aea333",
+      "size": 23504654,
+      "version_code": 303
+    }
+  },
+  {
+    "version": "0.3.2",
+    "date": "2026-11-23",
+    "notes": "Found with the new SYNQ Diagnostics app: the distortion came from the PC's\nspeaker effects, not from SYNQ. This release shows them, lets the phone do\nthe processing, and makes hard clipping impossible.\n\n### New\n- **SYNQ Diagnostics** (separate Android app). Records what SYNQ plays and\n  what the phone plays directly, compares them (clipping, squashing, gaps,\n  crackles, tonal balance, loudness), measures the headphones' delay, and\n  shares a report with audio clips.\n- **Speaker effects warning.** Many laptops tune their speakers with DTS,\n  Dolby, Realtek, Waves or Nahimic effects: less bass, more treble and a\n  pushed level, often into clipping. Windows records the sound after them,\n  so phones got laptop-speaker sound. SYNQ Desktop now names the effects on\n  the Home page and opens Windows' Sound settings, where \"Audio\n  enhancements: Off\" gives phones the original sound.\n- **The phone does the processing.** With the phone's sound engine\n  (\"This phone (Android)\"), the PC only routes the sound, untouched, and\n  the phone plays it through its normal music path, so its own Dolby Atmos,\n  equaliser and Adapt Sound apply as they do to any music app.\n- **Capture before the speakers' effects** (experimental, Mix page): takes\n  each app's own sound. Copy-protected apps such as Apple Music are silent\n  this way, so it is off by default.\n\n### Fixed\n- No more hard clipping: on the PC and on the phone, peaks above −1 dBFS\n  are bent smoothly instead of cut flat; everything below passes bit for\n  bit.",
+    "windows": {
+      "url": "https://github.com/nerkoux/synq-releases/releases/download/v0.3.2/SYNQ-Setup-0.3.2.exe",
+      "sha256": "317b714ca6e5dba8d817c2773e2d6e0d4a9a3154f667996c1c58826ef058dd19",
+      "size": 22940160
+    },
+    "android": {
+      "url": "https://github.com/nerkoux/synq-releases/releases/download/v0.3.2/SYNQ-0.3.2.apk",
+      "sha256": "b9e3beaae6b1796874eb076949272326d099385c94641c2a180a2c1bd1ec3e30",
+      "size": 23487954,
+      "version_code": 302
+    }
+  },
+  {
+    "version": "0.3.1",
+    "date": "2026-11-23",
+    "notes": "Clean, undistorted sound with AutoMix and the equaliser.\n\n### Fixed\n- **AutoMix no longer sounds choppy or robotic.** In 0.3.0 every sample\n  went through the time-stretcher, even when nothing needed stretching,\n  and its matching could shift each short slice of music by a few\n  milliseconds. Now, at normal speed, AutoMix is an exact delay: the music\n  passes bit for bit. The stretcher only runs while a song is tempo-matched\n  or the blend room is being rebuilt, and it is much smoother: longer,\n  music-friendly frames and loudness-independent matching with a\n  sample-exact second pass.\n- **No more distortion during blends.** Two loud songs mixed at equal power\n  could go 40 % over full scale; blends now keep headroom in the middle.\n- **EQ boosts no longer distort loud songs.** Clipping protection first\n  lowers the level by the equaliser's largest boost (for example SYNQ\n  Signature's bass), so the limiter only catches stray peaks instead of\n  squashing every beat. The Sound page shows how much room it makes.\n\n### Improved\n- Rebuilding AutoMix's blend room plays 2 % slower instead of 3 %.\n- Switching AutoMix on continues exactly where the sound was, without\n  repeating a moment.",
+    "windows": {
+      "url": "https://github.com/nerkoux/synq-releases/releases/download/v0.3.1/SYNQ-Setup-0.3.1.exe",
+      "sha256": "2a3de5405b695d6ec971304c23a724d0383f40bfe421815b0f221f8534453b98",
+      "size": 22904832
+    },
+    "android": {
+      "url": "https://github.com/nerkoux/synq-releases/releases/download/v0.3.1/SYNQ-0.3.1.apk",
+      "sha256": "ac15e7b9c540ac28bd0243812dadb9e32e375dfbe377f209eca18a3b4aab1d0d",
+      "size": 23487370,
+      "version_code": 301
+    }
+  },
+  {
+    "version": "0.3.0",
+    "date": "2026-11-22",
+    "notes": "SYNQ 0.3 turns your PC's music into a DJ set, gives you a choice of sound\nengine on the phone, and rebuilds SYNQ Desktop in the style of Windows\nSettings.\n\n### New\n- **AutoMix.** DJ-style transitions between songs from any player on the\n  PC (Spotify, Apple Music, YouTube Music, a browser…). When the player\n  moves to the next song, SYNQ finds where one song really ends and the\n  next begins, measures both songs' tempo and beats, and blends them:\n  - close tempos get a beat-matched mix of 8 or 16 beats, with the new\n    song time-stretched to the old one's tempo *without changing its\n    pitch*, then easing back to its own tempo;\n  - other songs get a smooth equal-power crossfade;\n  - every blend thins the outgoing song with a filter sweep and swaps the\n    bass halfway, so two kick drums never pile up;\n  - a skipped song gets a short fade; the next track of the same album\n    plays gapless, untouched; silence between songs is trimmed.\n  To hear the next song before it plays, AutoMix holds the music back\n  (12 s by default, adjustable from 6 to 20 s). That room fills up during\n  quiet moments, or by playing 3 % slower with the same pitch-keeping\n  stretch. Phones show the song they actually hear. Switch AutoMix on in\n  SYNQ Desktop (AutoMix page) or on the phone (Sound screen); turn it off\n  for games and video, which need the lowest latency.\n- **Sound engine on the phone.** Choose SYNQ's shared parametric EQ, or\n  this phone's own sound: its built-in equaliser and presets, bass boost,\n  surround and loudness, and the phone maker's sound enhancement (Dolby\n  and similar) where it has one. A switch turns SYNQ's processing on the\n  computer off so the sound is not processed twice.\n- **SYNQ Signature.** A new tuning for SYNQ's own processing: a little\n  warmth, less mud, clear voices and a smoother top end, all within\n  ±2.5 dB so it suits most headphones.\n- **A new SYNQ Desktop.** Laid out like Windows Settings: a navigation\n  pane with Home, Devices, Sound, Mix, AutoMix, Profiles & rules,\n  Activity and Settings, Windows 11's own Segoe UI Variable type and\n  Fluent icons, and a dark title bar with rounded corners. On a narrow\n  window the pane folds to icons.\n- **A new SYNQ Setup.** A steps rail (Welcome, License, Options, Install,\n  Finish) in the same style, with the matching title bar.\n\n### Improved\n- Equaliser changes are click-free: every change crossfades over 10 ms,\n  so dragging bands live from a phone sounds smooth.\n- iPhone: AutoMix switch on the Equalizer screen.",
+    "windows": {
+      "url": "https://github.com/nerkoux/synq-releases/releases/download/v0.3.0/SYNQ-Setup-0.3.0.exe",
+      "sha256": "363a2b3d113c025378b5a94df2b6d05c4902a410627abc0c4ad0ade778129348",
+      "size": 22899712
+    },
+    "android": {
+      "url": "https://github.com/nerkoux/synq-releases/releases/download/v0.3.0/SYNQ-0.3.0.apk",
+      "sha256": "1f03c3d34ab731d245a0c9422de19c567402b547cc5ec663c91cb7dc334a4b17",
+      "size": 23487610,
+      "version_code": 300
+    }
+  },
+  {
+    "version": "0.2.9",
+    "date": "2026-11-22",
+    "notes": "One sound, everywhere: a full parametric equaliser shared live by the PC and\nevery phone.\n\n### New\n- **Parametric equaliser on the phone.** SYNQ for Android and iPhone now\n  have an Equalizer screen: up to 8 bands, each with its own type (bell,\n  low shelf, high shelf, low-pass, high-pass), frequency, gain and width\n  (Q), plus preamp, clipping protection, loudness levelling and an A/B\n  bypass. Drag a point on the curve to move a band, or set it exactly.\n- **Live on every device.** The PC and all connected phones edit the same\n  sound. Move a slider on the phone and the PC's window follows while you\n  drag; change it on the PC and every phone updates within a moment. Only a\n  paired phone can change the sound (each edit is signed with its pairing\n  keys).\n- **Advanced equaliser on the PC.** A large response curve with a handle\n  per band: drag to set frequency and gain, scroll over a handle to change\n  its width, double-click to add a band. The precise band table (type,\n  frequency, gain, Q) is always shown while the equaliser is on.\n- **New presets:** Room: less boom, Speech and Small speaker, next to Flat,\n  Bass boost, Vocal clarity, Treble and Loudness.\n- **Room correction guidance** in the app: measure at your seat (for\n  example REW and a measurement microphone), cut the peaks with bell bands,\n  keep Q moderate and don't try to fill deep dips.\n\n### Improved\n- Bluetooth headphones: SYNQ's own output buffer on the phone now starts at\n  the smallest size the phone allows and grows only if the phone reports a\n  dropout, which saves another 10 to 20 ms on Bluetooth.\n- The phone shows where the delay comes from: the link, SYNQ's buffer and\n  the headphones themselves, with tips when Bluetooth dominates (game or\n  low-latency mode, LE Audio, wired or USB-C headphones).",
+    "windows": {
+      "url": "https://github.com/nerkoux/synq-releases/releases/download/v0.2.9/SYNQ-Setup-0.2.9.exe",
+      "sha256": "9f84b5967654a043f17ec73772e9bc55b4afc694f013def50449e694472e45f0",
+      "size": 22776320
+    },
+    "android": {
+      "url": "https://github.com/nerkoux/synq-releases/releases/download/v0.2.9/SYNQ-0.2.9.apk",
+      "sha256": "5eec231503d6e28485cb523103d9cce78cf7b7a0d86bc75d1389c81aa97e09b9",
+      "size": 23453118,
+      "version_code": 209
+    }
+  },
+  {
+    "version": "0.2.8",
+    "date": "2026-11-22",
+    "notes": "### Improved\n- Lower latency on Bluetooth headphones. Bluetooth makes the phone take\n  sound in large chunks (20 to 40 ms at a time); SYNQ kept a whole chunk\n  extra in its buffer, but on average only half is needed. That is 10 to\n  20 ms less on Bluetooth; the phone speaker and wired headphones are\n  unchanged.\n- The latency shown on the phone is the average delay, not the moment the\n  buffer is fullest, which overstated it by half a chunk on Bluetooth.",
+    "windows": {
+      "url": "https://github.com/nerkoux/synq-releases/releases/download/v0.2.8/SYNQ-Setup-0.2.8.exe",
+      "sha256": "9f693f56f05465ddbfd086bdae4e84e97f36851ecc0bf423faf45b571364697a",
+      "size": 22741504
+    },
+    "android": {
+      "url": "https://github.com/nerkoux/synq-releases/releases/download/v0.2.8/SYNQ-0.2.8.apk",
+      "sha256": "a0ed8e24bd096b62a5fd89df5d53657e879b1496a2ba0eab2394ff0bce9a231b",
+      "size": 23362086,
+      "version_code": 208
+    }
+  },
+  {
+    "version": "0.2.7",
+    "date": "2026-11-22",
+    "notes": "### New\n- Two connections at once: when the phone is on the USB cable and on the\n  network (Wi-Fi, with the PC on Ethernet or Wi-Fi), the PC now sends every\n  piece of sound over both, and the phone plays whichever copy arrives first.\n  A delay spike or dropout on one connection is never heard, and pulling the\n  cable loses nothing. The phone shows \"USB cable + Wi-Fi\" while both carry\n  the sound. Same pairing and encryption on both.\n\n### Improved\n- Lower and steadier latency on the phone speaker: the speaker's own buffer\n  now starts as small as the phone allows and grows only if the phone\n  reports a dropout.\n- Statistics only count the first copy of each packet, so the jitter buffer\n  is sized for the faster connection, not the slower one.",
+    "windows": {
+      "url": "https://github.com/nerkoux/synq-releases/releases/download/v0.2.7/SYNQ-Setup-0.2.7.exe",
+      "sha256": "b96f397ba8c2d73d1493a60af3eec3f6f7119ab50c59565004e22770686f38aa",
+      "size": 22741504
+    },
+    "android": {
+      "url": "https://github.com/nerkoux/synq-releases/releases/download/v0.2.7/SYNQ-0.2.7.apk",
+      "sha256": "9b7708b1b27e28446535c25aa23c2b2420f5cafade7c25390819e8cce99e9f26",
+      "size": 23362294,
+      "version_code": 207
+    }
+  },
+  {
+    "version": "0.2.6",
+    "date": "2026-11-22",
+    "notes": "### Fixed\n- Bluetooth headphones no longer push the delay to 400 ms. Bluetooth pulls\n  sound in large, uneven chunks; each short dry spell made SYNQ add 10 ms of\n  buffer, and those additions could climb to the 400 ms meant for Wi-Fi\n  stalls. They now stop at the normal maximum of the chosen mode.\n- Switching from Bluetooth back to the phone speaker returns to the speaker's\n  low latency; the buffer no longer stays sized for Bluetooth.\n- This release also fixes the automatic tests on the build server.\n\n### Improved\n- SYNQ asks Android for Bluetooth's low-latency mode (Android 13 and later,\n  on headphones that support one).\n- The phone shows how much of the delay comes from the headphones\n  themselves. Bluetooth always adds some delay on its own (often 150 to\n  250 ms); the phone speaker, wired headphones and a USB cable do not.",
+    "windows": {
+      "url": "https://github.com/nerkoux/synq-releases/releases/download/v0.2.6/SYNQ-Setup-0.2.6.exe",
+      "sha256": "e3f8af68f45138625305498b67a3c4b5bb3f9ca9393c8e735fcf4d611a62c6ad",
+      "size": 22733824
+    },
+    "android": {
+      "url": "https://github.com/nerkoux/synq-releases/releases/download/v0.2.6/SYNQ-0.2.6.apk",
+      "sha256": "545b9af07159b1fccbb78803ac39abf00278d1408e38be40970e012947ad6467",
+      "size": 23360150,
+      "version_code": 206
+    }
+  },
+  {
+    "version": "0.2.5",
+    "date": "2026-11-22",
+    "notes": "### New\n- USB connection for the lowest latency: plug the phone into the PC and turn\n  on USB tethering (iPhone: Personal Hotspot over USB). The cable carries the\n  sound with about 1 ms delay and none of Wi-Fi's stalls. SYNQ moves an\n  ongoing session to the cable by itself and back to Wi-Fi when it is\n  unplugged, without reconnecting. It keeps the same pairing and end-to-end\n  encryption, and works through Windows Firewall without any setting.\n- Latency advisor: when a game (VALORANT, CS2, Apex, Fortnite… or any other\n  full-screen app that is not a browser or video player) is in front on the\n  PC while a phone listens over Wi-Fi, SYNQ suggests the USB cable on the PC\n  and on the phone. The phone also notices a plugged-in cable and opens the\n  USB tethering switch.\n- The phone shows which link it is on (USB cable or Wi-Fi).\n\n### Fixed\n- Starting with Windows: SYNQ now opens its window at sign-in. Before, it\n  started hidden but left a taskbar button that never opened, and the tray\n  icon could be missing when SYNQ started before the taskbar. \"Start in the\n  tray when Windows starts\" (Advanced) keeps it in the tray, now reliably.\n- App volumes in the mix: with System output on, an app's slider (for\n  example VALORANT) now really changes that app's volume. The app was\n  already part of System output, so the slider only changed a second copy\n  on top. It now sets the app's own Windows volume, which SYNQ puts back\n  when you remove the app or quit.\n\n### Improved\n- Wi-Fi latency: after a stall had enlarged the buffer (up to 400 ms), SYNQ\n  kept that delay for minutes. It now returns to what the network needs\n  within a few seconds once the link is steady again.\n- Audio from the PC is marked as voice traffic (Windows QoS), so Wi-Fi\n  routers send it ahead of downloads and video.\n- Switching paths (Wi-Fi to USB, or another address) measures the new path\n  on its own, so a switch no longer looks like jitter and lifts the buffer.",
+    "windows": {
+      "url": "https://github.com/nerkoux/synq-releases/releases/download/v0.2.5/SYNQ-Setup-0.2.5.exe",
+      "sha256": "27427500c5ac9280acacd582adc6e7fde6404cb7c75af985bbe9fddae613a2fa",
+      "size": 22733824
+    },
+    "android": {
+      "url": "https://github.com/nerkoux/synq-releases/releases/download/v0.2.5/SYNQ-0.2.5.apk",
+      "sha256": "1e838b7a7c425eff0950a5da59b641a5250a30501a89bd7b47501b716b892e79",
+      "size": 23360358,
+      "version_code": 205
+    }
+  },
+  {
+    "version": "0.2.4",
+    "date": "2026-11-15",
+    "notes": "### Improved\n- Hotspots and weak Wi-Fi no longer break up the sound. Hotspots (a PC's\n  Mobile Hotspot, a phone's hotspot) and Wi-Fi power saving hold packets for\n  100–300 ms and then release them all at once; SYNQ now enlarges its buffer\n  to ride through those stalls instead of cutting, and shrinks it again when\n  the network calms down. The phone shows \"Unstable network · +X ms buffer to\n  avoid cuts\" while this happens. On a steady network nothing changes.",
+    "windows": {
+      "url": "https://github.com/nerkoux/synq-releases/releases/download/v0.2.4/SYNQ-Setup-0.2.4.exe",
+      "sha256": "a0f0153c8d0e272537b8cc4bfd571b20f944cbabb9402d9c64f9b25fd8c80fc5",
+      "size": 22619648
+    },
+    "android": {
+      "url": "https://github.com/nerkoux/synq-releases/releases/download/v0.2.4/SYNQ-0.2.4.apk",
+      "sha256": "0585a9fa1fd7e006ad3c64d95c4738622af992b410aa7890a571f66c07b700e4",
+      "size": 23339182,
+      "version_code": 204
+    }
+  },
+  {
+    "version": "0.2.3",
+    "date": "2026-11-14",
+    "notes": "### New\n- Full-screen player on the phone in landscape: the status and navigation\n  bars hide (swipe from the edge to show them).\n- The phone's home screens use two columns in landscape.\n\n### Fixed\n- \"Forget\" on the PC now also removes the pairing: a forgotten phone has to\n  pair again instead of reconnecting straight away. A pairing request brings\n  SYNQ back from the tray.\n- SYNQ Desktop no longer uses a full CPU core while hidden in the tray\n  (about 12% before, under 1% now).\n\n### Improved\n- Lighter on the phone's battery: the media notification only updates when\n  something changed, and the progress bar redraws a few times a second\n  instead of every frame.\n- Media apps on the PC are checked less often when nothing is shown.",
+    "windows": {
+      "url": "https://github.com/nerkoux/synq-releases/releases/download/v0.2.3/SYNQ-Setup-0.2.3.exe",
+      "sha256": "de13478767fb57fc248cf162fd8be8e281aec4e13090a20a9e438fb1e8e2e11c",
+      "size": 22620160
+    },
+    "android": {
+      "url": "https://github.com/nerkoux/synq-releases/releases/download/v0.2.3/SYNQ-0.2.3.apk",
+      "sha256": "4bfebe98eeaebcc99c7831ab623e23032af07bc781cea79c116cff11bec6fb39",
+      "size": 23327190,
+      "version_code": 203
+    }
+  },
+  {
+    "version": "0.2.2",
+    "date": "2026-11-14",
+    "notes": "### New\n- Media controls in the phone's notification and on the lock screen: artwork,\n  play/pause, previous/next and seeking for whatever plays on the computer\n  (also from Bluetooth and headset buttons).\n- Updates in the app: on every launch SYNQ checks for a new version and shows\n  a dialog; \"Update now\" downloads, verifies and installs it (PC and phone).\n\n### Improved\n- The phone's player works in landscape: artwork with the seek bar on the\n  left, controls on the right; it no longer gets stuck when rotating.\n- \"Check for updates\" on the PC shows its progress and result.",
+    "windows": {
+      "url": "https://github.com/nerkoux/synq-releases/releases/download/v0.2.2/SYNQ-Setup-0.2.2.exe",
+      "sha256": "efb811035623bbdd198c8758d04cbe5d6a0bbc17e65740de7c43ca9ff420e111",
+      "size": 22614528
+    },
+    "android": {
+      "url": "https://github.com/nerkoux/synq-releases/releases/download/v0.2.2/SYNQ-0.2.2.apk",
+      "sha256": "f04e3cf39167297ea30ed506b13ff90dfa75d43be722d5c8887f2b8f7e1c089d",
+      "size": 23311026,
+      "version_code": 202
+    }
+  },
+  {
+    "version": "0.2.1",
+    "date": "2026-11-14",
+    "notes": "### Improved\n- SYNQ Desktop no longer opens a console window; logs go to a file instead.\n- The SYNQ icon now shows in the taskbar, Start menu and Explorer.\n- SYNQ Setup: license agreement, choice of install folder, smoother pages.\n- A fresh install starts with the first-run setup; development builds keep\n  their own settings and never mix with the installed app.\n- Lighter: fewer redraws when SYNQ is in the background, smaller downloads.\n- This release also tests automatic updates from 0.2.0.",
+    "windows": {
+      "url": "https://github.com/nerkoux/synq-releases/releases/download/v0.2.1/SYNQ-Setup-0.2.1.exe",
+      "sha256": "f7789b9bfa5d868683ade211f64d08a5bd0d0a308a8063810b5a90f3b3a7971f",
+      "size": 22601728
+    },
+    "android": {
+      "url": "https://github.com/nerkoux/synq-releases/releases/download/v0.2.1/SYNQ-0.2.1.apk",
+      "sha256": "b5812a4832737289808021cdf31988972c97bdd17aa67573fc8b55a5c3d49cec",
+      "size": 23292094,
+      "version_code": 201
+    }
+  },
+  {
+    "version": "0.2.0",
+    "date": "2026-11-14",
+    "notes": "### New\n- Pairing required: every connection is a Noise IK handshake with a paired phone; unpaired phones get the pairing code automatically.\n- Disconnect on the PC now stops the phone for good (authenticated kick).\n- Now Playing: see and control what any app plays (Spotify, Chrome, Brave, Apple Music…) — seek, ±10 s, previous/next, shuffle, repeat — on the PC and the phone.\n- New black-and-white design with onboarding on Windows and Android.\n- Tray icon, minimize to tray, full screen (F11), two-column wide layout.\n- SYNQ Setup installer and signed automatic updates.",
+    "windows": {
+      "url": "https://github.com/nerkoux/synq-releases/releases/download/v0.2.0/SYNQ-Setup-0.2.0.exe",
+      "sha256": "33b6c660b85fde7f42da947d247e8aeebc01f29fd15da1661a873c3c419e7088",
+      "size": 21701632
+    },
+    "android": {
+      "url": "https://github.com/nerkoux/synq-releases/releases/download/v0.2.0/SYNQ-0.2.0.apk",
+      "sha256": "0631cbf505a8040ea839ede3c381e660dacb8fab5911f96ab13656e4c661de0a",
+      "size": 23291850,
+      "version_code": 200
+    }
+  }
+]
